@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+let str="";
+function newfunc(a) {
+    var numberss = ['0', '1','2','3','4','5','6','7','8','9','.'];
+    var symbols = ['+', '-','*','/'];
+    num=document.getElementById("field1").value;
+    if(numberss.includes(num))
+    {
+        document.getElementById("field1").value+=a;
+    }
+    else
+    if(a!='=')
+    {
+        document.getElementById("field1").value=a; // Click on the checkbox
+    }
+
+
+    if(a == '='){
+        for(i=0;i< str.length;i++){
+          if(symbols.includes(str[i])){
+              var res = str.split(str[i]);
+
+              switch(str[i]){
+                  case '+':
+                      var nmm=parseFloat(res[0])+parseFloat(res[1]);
+                      alert(nmm);
+                     document.getElementById("field1").value=nmm;
+
+                      break;
+                  case '-':
+                     document.getElementById("field1").value=parseFloat(res[1])-parseFloat(res[2]);
+                      break;
+                      case '*':
+                     document.getElementById("field1").value=res[1]*res[2];
+
+                      break;
+                      case '/':
+                     document.getElementById("field1").value=res[1]/res[2];
+                      break;
+                  default:
+                      document.getElementById("field1").value="Error";
+
+
+              }
+          }
+        }
+
+    }
+    else{
+        str+=a;
+    }
+}
+
+
+</script>
+    <link rel="stylesheet" type="text/css" href="Styles.css">
+    <title>Simple Calculator</title>
+</head>
+<body>
+<div class="FullTable" align="center">
+<div class="Header">Calculator</div>
+<div class="InputSpace">
+<input type="text" name="username" id="field1">
+</div>
+<div class="calbody">
+    <div>
+    <button class="button" type="button" value="7" onclick="newfunc(7)">7</button>
+    <button class="button" type="button" value="8" onclick="newfunc(8)">8</button>
+    <button class="button" type="button" value="9" onclick="newfunc(9)">9</button>
+    <button class="button" type="button" value="" onclick="newfunc('+')">+</button></div>
+    <div><button class="button" type="button" onclick="newfunc(4)">4</button>
+    <button class="button" type="button" onclick="newfunc(5)">5</button>
+    <button class="button" type="button" onclick="newfunc(6)">6</button>
+    <button class="button" type="button" onclick="newfunc('-')">-</button></div>
+    <div><button class="button" type="button" onclick="newfunc(1)">1</button>
+    <button class="button" type="button" onclick="newfunc(2)">2</button>
+    <button class="button" type="button" onclick="newfunc(3)">3</button>
+    <button class="button" type="button" onclick="newfunc('*')">*</button></div>
+    <div><button class="button" type="button" onclick="newfunc(0)">0</button>
+    <button class="button" type="button" onclick="newfunc('.')">.</button>
+    <button class="button" type="button" onclick="newfunc('/')">/</button>
+    <button class="button" type="button" onclick="newfunc('=')">=</button></div>
+
+
+</div>
+</div>
+</body>
+</html>
